@@ -25,7 +25,7 @@ need fixes of their own.
 
 ## The problems
 
-<ProblemTable ticket={4471} issues={{ parser: 'ISSUE_URL_PARSER', hint: 'ISSUE_URL_HINT', 'one-day move': 'ISSUE_URL_ONEDAY' }} />
+<ProblemTable ticket={4471} issues={{ parser: 'https://github.com/AdamZajler/mega-s01e03-kb/issues/1', hint: 'https://github.com/AdamZajler/mega-s01e03-kb/issues/2', 'one-day move': 'https://github.com/AdamZajler/mega-s01e03-kb/issues/3' }} />
 
 - **parser**: the shared parser reads every date month first, and every tenant on file writes
   the day first. Day and month swap.

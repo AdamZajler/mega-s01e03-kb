@@ -35,7 +35,7 @@
         <td>{r.n}</td>
         <td>{r.tenants}</td>
         <td>{r.first} → {r.last}</td>
-        <td>{#if issues[r.problem]}<a href={issues[r.problem]}>{issues[r.problem]?.split('/').slice(-3).join(' ')}</a>{:else}none yet{/if}</td>
+        <td>{#if issues[r.problem]}<a href={issues[r.problem]}>#{issues[r.problem]?.split('/').at(-1)}</a>{:else}none yet{/if}</td>
       </tr>
     {/each}
   </tbody>
