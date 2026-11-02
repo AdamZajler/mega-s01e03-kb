@@ -41,7 +41,8 @@ need fixes of their own.
 - Cause by tenant (locale and booking form), with `causeOf` in `causes.ts`. The intake tag is a
   guess from the reporter's browser. It disagrees with the tenant often enough that it can't be
   used for counting.
-- The same split by the desk's own rule, with one-day moves counted under their tenant's cause:
+- Counted the desk's way: one-day moves stay under their tenant's cause, as the desk files them,
+  and have a row of their own. The desk's own table:
 
 <CauseTable ticket={4471} />
 
