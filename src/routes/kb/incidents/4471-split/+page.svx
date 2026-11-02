@@ -1,0 +1,53 @@
+---
+layout: runbook
+title: '#4471 is three problems, not one'
+owner: support desk
+status: draft
+reviewed: 2026-10-31
+signature: AdamZajler
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+[#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. Its own reports say
+otherwise. Read by tenant instead of by subject or intake tag, they split into three problems.
+Each problem now has its own ticket.
+
+<Callout kind="warn">
+The queued parser fix will not close #4471. The booking-v3 form hint and the one-day moves
+need fixes of their own.
+</Callout>
+
+## The problems
+
+<ProblemTable ticket={4471} issues={{ parser: 'ISSUE_URL_PARSER', hint: 'ISSUE_URL_HINT', 'one-day move': 'ISSUE_URL_ONEDAY' }} />
+
+- **parser**: the shared parser reads every date month first, and every tenant on file writes
+  the day first. Day and month swap.
+- **hint**: booking-v3 prints `MM/DD/YYYY` under its date field. People type month first, as
+  told, and the form reads the date day first. This happens only through the form, and only for
+  booking-v3 tenants.
+- **one-day move**: the date moves by one day, not by a swap. It looks like a timezone problem.
+  The desk had already read these reports this way (desk notes).
+
+## How this was counted
+
+- One id, one report: the ticket export repeats some reports across pages.
+- Cause by tenant (locale and booking form), with `causeOf` in `causes.ts`. The intake tag is a
+  guess from the reporter's browser. It disagrees with the tenant often enough that it can't be
+  used for counting.
+- The same split by the desk's own rule, with one-day moves counted under their tenant's cause:
+
+<CauseTable ticket={4471} />
+
+## What changes on the desk
+
+- Do not merge a date report into #4471 on its subject alone ([decision 0001](/kb/decisions/0001-dedupe-by-subject)).
+  Check the tenant and the channel first, with the [triage explorer](/kb/triage/dedupe).
+
+<RenderStamp {signature} />
