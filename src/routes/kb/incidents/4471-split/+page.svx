@@ -4,7 +4,7 @@ title: '#4471 was two problems, not one'
 owner: support desk
 status: closed
 reviewed: 2026-11-02
-signature: AdamZajler
+signature: 'v1.eyJzdWIiOiIyMzA4IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM2Mjg3NTEsImV4cCI6MTc5MzcxNTE1MX0.mQC4skzRtN86QGjxElfL8GLTqcZY2ibqZ0bvOL8Sb1s'
 ---
 
 <script>
