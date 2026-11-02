@@ -26,7 +26,7 @@
   );
 </script>
 
-<p class="sum"><strong>{merged.length}</strong> reports merged into #{ticket} · <strong>{rows.length}</strong> problems</p>
+<p class="sum"><strong>{merged.length}</strong> reports merged into #{ticket} · <strong>{groups.length}</strong> {groups.length === 1 ? 'problem' : 'problems'}</p>
 
 <table>
   <thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead>

@@ -1,9 +1,9 @@
 ---
 layout: runbook
-title: '#4471 is three problems, not one'
+title: '#4471 was two problems, not one'
 owner: support desk
-status: draft
-reviewed: 2026-10-31
+status: closed
+reviewed: 2026-11-02
 signature: AdamZajler
 ---
 
@@ -14,13 +14,14 @@ signature: AdamZajler
   import Callout from '#lib/kb/Callout.svelte';
 </script>
 
-[#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. Its own reports say
-otherwise. Read by tenant instead of by subject or intake tag, they split into three problems.
-Each problem now has its own ticket.
+[#4471](/kb/incidents/4471) was marked known: one issue, one fix queued. Its own reports say
+otherwise. Read by tenant instead of by subject or intake tag, they split into two problems
+with two different fixes. Each has its own ticket. Five reports the desk read as a one-day move
+are counted under their cause and tracked on their own.
 
-<Callout kind="warn">
-The queued parser fix will not close #4471. The booking-v3 form hint and the one-day moves
-need fixes of their own.
+<Callout>
+#4471 closed on 5 October. <b>parser</b>: fixed (<code>fix(dates): parse dd/mm for eu locales</code>).
+<b>hint</b>: won't fix, because the booking-v3 form is retired. The tickets below are closed to match.
 </Callout>
 
 ## The problems
@@ -32,8 +33,9 @@ need fixes of their own.
 - **hint**: booking-v3 prints `MM/DD/YYYY` under its date field. People type month first, as
   told, and the form reads the date day first. This happens only through the form, and only for
   booking-v3 tenants.
-- **one-day move**: the date moves by one day, not by a swap. It looks like a timezone problem.
-  The desk had already read these reports this way (desk notes).
+- **one-day move** (within parser): the date moves by one day, not by a swap. It looks like a
+  timezone problem. The desk had already read these reports this way (desk notes) and counts them
+  under parser. The parser fix doesn't name them, so watch for new one-day reports.
 
 ## How this was counted
 
@@ -42,7 +44,7 @@ need fixes of their own.
   guess from the reporter's browser. It disagrees with the tenant often enough that it can't be
   used for counting.
 - Counted the desk's way: one-day moves stay under their tenant's cause, as the desk files them,
-  and have a row of their own. The desk's own table:
+  and are shown on a row of their own. The desk's own table:
 
 <CauseTable ticket={4471} />
 
